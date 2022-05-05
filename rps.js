@@ -2,7 +2,9 @@
 let playerScore = 0;
 let computerScore = 0;
 let draw = 0;    
+const buttons = document.querySelectorAll('button');
 const randomChoice = ["Rock", "Paper", "Scissors"]
+
 function computerPlay(randomChoice)
 {
     return randomChoice[Math.floor(Math.random()*randomChoice.length)];
@@ -67,20 +69,26 @@ function computerPlay(randomChoice)
 }
 
 
+
+
  function game()
  {
-     
-     for(let i = 0; i < 5; i++) 
-     {
-         let playerSelection = prompt('Rock, Paper, or Scissors?');
+
+        buttons.forEach((button) => {
+        button.addEventListener('click',()=>{
+        playerSelection = button.className;
+    //  for(let i = 0; i < 5; i++) 
+    //  {
          const computerSelection = computerPlay(randomChoice);
          console.log(playRound(playerSelection, computerSelection));
          console.log(playerScore + " Player");
          console.log(computerScore + " Computer");
          console.log(draw + " Draw")
-     }
-     
-}
+        })
+//      }
+        
+})
+ }
 function theWinner()
 {
 
@@ -101,12 +109,4 @@ function theWinner()
 game();
 theWinner();
 
-
-
-
-
-
-        
-
-         
 
