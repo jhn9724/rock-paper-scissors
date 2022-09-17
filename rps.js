@@ -1,4 +1,3 @@
-
   let playerScore = 0;
   let computerScore = 0;
   let draw = 0;
@@ -10,14 +9,13 @@ function computerPlay()
 }
 
 
-
 //Function for playing an entire game of Rock, Paper, Scissors
  function game()
  {
-        const buttons = document.querySelectorAll('button');
-        buttons.forEach((button) => {
-        button.addEventListener('click',()=>{
-        playerSelection = button.className;
+        const buttons = document.querySelectorAll('input');
+        buttons.forEach((input) => {
+        input.addEventListener('click',()=>{
+        playerSelection = input.className;
         const computerSelection = computerPlay();
         round.textContent = (playRound(playerSelection, computerSelection));
         pscore.textContent = "(" +playerScore + " Player) ";
@@ -84,6 +82,7 @@ function computerPlay()
             return "You win!";
         }
     }
+
     
 }
  
@@ -145,5 +144,5 @@ function theWinner()
 //calling functions
 game();
 // theWinner();
-
+document.getElementById('playersChoice').innerHTML = "cow";
 
